@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import Counter from './Counter';
 import {
-  //   decrease,
+  decrease,
   decreaseAsync,
-  //   increase,
+  increase,
   increaseAsync,
 } from './../store/reducers/counter';
 
@@ -17,7 +17,7 @@ const Container = styled.div`
 `;
 
 function ReduxThunkExample() {
-  const number = useSelector(state => state.counter);
+  const { number } = useSelector(state => state.counter);
   const dispatch = useDispatch();
 
   const onIncrease = () => {

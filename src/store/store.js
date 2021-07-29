@@ -14,8 +14,11 @@ export default createStore(
   rootReducer,
   composeWithDevTools(
     applyMiddleware(
+      // ReduxThunk.withExtraArgument: thunk사용시 추가 인자를 전달한다는 의미(3번째부터 extra argument를 받아온다)
+      // thunk함수에서 3번째 인자로 history라는 인자가 추가되고
+      // createBrowserHistory로 만들어진 customHistory가 history에 할당된다.
       ReduxThunk.withExtraArgument({ history: customHistory }),
-      sagaMiddleware, //사가 미들웨얼ㄹ 적용
+      sagaMiddleware, //사가 미들웨어 적용
       logger
     )
   )
